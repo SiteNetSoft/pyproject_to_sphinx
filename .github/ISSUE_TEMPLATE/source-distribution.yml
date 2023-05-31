@@ -1,0 +1,44 @@
+---
+name: "Source distribution issue"
+description: Report an issue with source distribution
+title: "(short issue description)"
+labels: [source-distribution, needs-triage]
+assignees: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the issue
+      description: What is the problem? A clear and concise description of the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Information/Context
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Version used
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS name and version
+    validations:
+      required: true
+  - type: input
+    id: package-manager
+    attributes:
+      label: Package manager used
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version used (if applicable)
+    validations:
+      required: false
