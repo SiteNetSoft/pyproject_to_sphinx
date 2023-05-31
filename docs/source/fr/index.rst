@@ -1,7 +1,7 @@
 PyProject to Sphinx
 =============================
 
-Pourquoi copier-coller les détails de votre projet dans votre documentation Sphinx lorsque vous pouvez simplement utiliser les informations déjà présentes dans votre fichier pyproject.toml ?
+Pourquoi copier-coller les détails de votre projet dans votre documentation Sphinx lorsque vous pouvez simplement utiliser les informations déjà présentes dans votre fichier `pyproject.toml` ?
 
 Problèmes de duplication d'information :
 
@@ -9,7 +9,7 @@ Problèmes de duplication d'information :
 * Erreur humaine lors de la copie et du collage d'informations entre les deux fichiers
 * Il est chronophage de mettre à jour les deux fichiers
 
-C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` [Sphinx](http://sphinx-doc.org/).
+C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://sphinx-doc.org/>`__.
 
 Pourquoi la documentation est-elle également en français ?
 ----------------------------------------

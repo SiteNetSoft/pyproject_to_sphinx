@@ -9,7 +9,7 @@ Duplication of information problems:
 * Human error when copying and pasting information between the two
 * Time consuming to update both
 
-This is why this very simple project exists. It parses your `pyproject.toml` file and populates the variables in your [Sphinx](http://sphinx-doc.org/) `conf.py` file.
+This is why this very simple project exists. It parses your `pyproject.toml` file and populates the variables in your `Sphinx <http://sphinx-doc.org/>`__ `conf.py` file.
 
 Why is the documentation also in French?
 ----------------------------------------
