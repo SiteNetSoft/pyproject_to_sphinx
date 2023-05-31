@@ -1,6 +1,5 @@
 [tool.poetry]
-name = "pyproject_to_sphinx"
-title = "Pyproject to Sphinx"
+name = "PyProject to Sphinx"
 version = "0.0.1"
 description = "It takes the information from pyproject.toml to populate the Sphinx conf.py file."
 authors = ["Jean-Nicolas Boulay Desjardins"]
@@ -26,6 +25,8 @@ classifiers=[
     'License :: OSI Approved :: MIT License',
     'Operating System :: POSIX :: Linux',
     'Operating System :: MacOS :: MacOS X',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: OS Independent',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
