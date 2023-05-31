@@ -5,7 +5,7 @@
 [![Language: English](https://img.shields.io/badge/Language-English-blue.svg)](./README.md)
 [![Language: Français](https://img.shields.io/badge/Langue-Fran%C3%A7ais-blue.svg)](./README.fr.md)
 
-Il récupère les informations du fichier `pyproject.toml` pour peupler le fichier `conf.py` de Sphinx.
+Il récupère les informations du fichier `pyproject.toml` pour peupler le fichier `conf.py` de [Sphinx](http://sphinx-doc.org/).
 
 ## :books: Documentations
 :card_index_dividers: /[docs](https://sitenetsoft.org/docs/fr/html/)
