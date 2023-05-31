@@ -17,7 +17,10 @@ class PyProjectParser:
     PyProjectParser class.
     """
 
-    def __init__(self, pyproject_path: Path | None, docs_path: Path | None, license_path: Path | None):
+    def __init__(self,
+                 pyproject_path: Path | None = None,
+                 docs_path: Path | None = None,
+                 license_path: Path | None = None):
         """
         PyProjectParser constructor.
         :param pyproject_path:

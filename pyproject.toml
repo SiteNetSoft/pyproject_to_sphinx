@@ -1,14 +1,25 @@
 [tool.poetry]
 name = "pyproject_to_sphinx"
 title = "Pyproject to Sphinx"
-version = "0.1.1"
+version = "0.0.1"
 description = "It takes the information from pyproject.toml to populate the Sphinx conf.py file."
 authors = ["Jean-Nicolas Boulay Desjardins"]
 license = "MIT"
 readme = "README.md"
-keywords = ["pyproject", "sphinx", "documentation"]
+keywords = [
+    "pyproject",
+    "sphinx",
+    "documentation",
+    "conf.py",
+    "pyproject.toml",
+    "documentation generation",
+    "python",
+    "tool",
+    "configuration"
+]
 classifiers=[
-    'Environment :: Console',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules',
     'Intended Audience :: Developers',
     'Intended Audience :: Information Technology',
     'Intended Audience :: System Administrators',
@@ -23,9 +34,6 @@ classifiers=[
     'Topic :: Utilities',
 ]
 packages = [{include='pyproject_to_sphinx', from='.'}]
-
-[tool.poetry.scripts]
-amadlacli = 'amadlacli.cli:main'
 
 [tool.poetry.dependencies]
 python = "^3.9.0"
