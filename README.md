@@ -13,4 +13,4 @@ It takes the information from `pyproject.toml` to populate the Sphinx `conf.py` 
 
 ---
 
-Made in :fleur_de_lis: Québec, Canada 🇨🇦!
+Made in Québec :fleur_de_lis:, Canada 🇨🇦!

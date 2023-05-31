@@ -13,4 +13,4 @@ Il récupère les informations du fichier `pyproject.toml` pour peupler le fichi
 
 ---
 
-Fabriqué au :fleur_de_lis: Québec, Canada 🇨🇦!
+Fabriqué au Québec :fleur_de_lis:, Canada 🇨🇦!
