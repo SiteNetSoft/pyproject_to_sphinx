@@ -11,10 +11,24 @@ Problèmes de duplication d'information :
 
 C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://sphinx-doc.org/>`__.
 
-Pourquoi la documentation est-elle également en français ?
-----------------------------------------
+.. note::
 
-Notre 127.0.0.1 est au Québec, Canada, c'est pour cette raison que nous devons fournir notre documentation en français.
+    **Pourquoi la documentation est-elle également en français ?**
+
+    Notre 127.0.0.1 est au Québec, Canada, c'est pour cette raison que nous devons fournir notre documentation en français.
+
+Version vs. Versioning
+----------------------
+
+* **version:** Il s'agit d'une version plus courte, une "référence rapide" de votre projet, qui omet généralement des détails de niveau de point plus petits. Par exemple, si la version complète de votre projet est '1.3.4', la version pourrait être juste '1.3'.
+* **release:** Il s'agit de la chaîne de version complète de votre projet, y compris les tags alpha/beta/rc. Poursuivant l'exemple précédent, la publication serait '1.3.4'.
+
+Dans le fichier `pyproject.toml`, la section `[tool.poetry]` n'a qu'un champ de version,
+qui correspond à la version complète de votre projet, similaire au champ de release dans `conf.py` de Sphinx.
+La version dans `pyproject.toml` suit généralement le format `MAJOR.MINOR.PATCH`, par exemple '1.3.4',
+et peut également inclure des identifiants pour la préversion et des métadonnées de build.
+
+Pour plus d'informations sur la `version de Sphinx <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version>`__.
 
 Installation
 ------------
