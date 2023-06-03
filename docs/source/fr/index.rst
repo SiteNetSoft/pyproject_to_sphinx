@@ -9,7 +9,7 @@ Problèmes de duplication d'information :
 * Erreur humaine lors de la copie et du collage d'informations entre les deux fichiers
 * Il est chronophage de mettre à jour les deux fichiers
 
-C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://sphinx-doc.org/fr/master/>`__.
+C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://www.sphinx-doc.org/fr/master/>`__.
 
 .. note::
 
