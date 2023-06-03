@@ -13,6 +13,14 @@ C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyprojec
 
 .. note::
 
+    Les informations sur les droits d'auteur sont extraites du fichier LICENSE de votre projet.
+
+    Si elles ne sont pas trouvées là, elles seront extraites du nom du type de licence dans le fichier pyproject.toml.
+
+    Tous les types de licences n'ont pas été testés.
+
+.. note::
+
     **Pourquoi la documentation est-elle également en français ?**
 
     Notre 127.0.0.1 est au Québec, Canada, c'est pour cette raison que nous devons fournir notre documentation en français.
@@ -44,6 +52,14 @@ Ou via poetry :
 .. code-block:: bash
 
     poetry add pyproject_to_sphinx
+
+.. tip::
+
+    Lorsque vous installez avec Poetry, il se peut qu'il reste bloqué à cet endroit, vous devrez donc utiliser cette variable d'environnement :
+
+    .. code-block:: bash
+
+        export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 Rien de trop compliqué.
 

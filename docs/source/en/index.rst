@@ -13,6 +13,14 @@ This is why this very simple project exists. It parses your `pyproject.toml` fil
 
 .. note::
 
+    The copyright information is taken from the LICENSE file of your project.
+
+    If it is not found there it will be taken from the `pyproject.toml` file license type name.
+
+    Not all license types have been tested for.
+
+.. note::
+
     **Why is the documentation also in French?**
 
     Our 127.0.0.1 is in Québec, Canada for this reason we have to provide our documentation in French.
@@ -47,6 +55,14 @@ Or via poetry:
 .. code-block:: bash
 
     poetry add pyproject_to_sphinx
+
+.. tip::
+
+    When you install with Poetry it might just hang there so you might need to use this environment variable:
+
+    .. code-block:: bash
+
+        export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 Nothing to complicated.
 
