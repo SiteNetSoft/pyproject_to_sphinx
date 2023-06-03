@@ -9,7 +9,7 @@ Problèmes de duplication d'information :
 * Erreur humaine lors de la copie et du collage d'informations entre les deux fichiers
 * Il est chronophage de mettre à jour les deux fichiers
 
-C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://sphinx-doc.org/>`__.
+C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyproject.toml` et peuple les variables de votre fichier `conf.py` `Sphinx <http://sphinx-doc.org/fr/master/>`__.
 
 .. note::
 
@@ -36,7 +36,7 @@ qui correspond à la version complète de votre projet, similaire au champ de re
 La version dans `pyproject.toml` suit généralement le format `MAJOR.MINOR.PATCH`, par exemple '1.3.4',
 et peut également inclure des identifiants pour la préversion et des métadonnées de build.
 
-Pour plus d'informations sur la `version de Sphinx <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version>`__.
+Pour plus d'informations sur la `version de Sphinx <https://www.sphinx-doc.org/fr/master/usage/configuration.html#confval-version>`__.
 
 Installation
 ------------
