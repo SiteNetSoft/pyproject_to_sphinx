@@ -227,7 +227,7 @@ class PyProjectParser:
         return self._license_file_copyright
 
     @license_file_copyright.setter
-    def license_file_copyright(self) -> None:
+    def license_file_copyright(self, value: str | None) -> None:
         """
         Set copyright from license file.
         :param self:
