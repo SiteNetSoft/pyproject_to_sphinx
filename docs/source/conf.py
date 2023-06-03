@@ -7,7 +7,7 @@ from pyproject_to_sphinx.pyproject_parser import PyProjectParser
 pyproject_parser = PyProjectParser()
 
 # -- Set project information for Sphinx --
-project = pyproject_parser.metadata["title"]
+project = pyproject_parser.metadata["name"]
 author = pyproject_parser.authors
 release = pyproject_parser.release
 version = pyproject_parser.version
