@@ -278,12 +278,15 @@ class PyProjectParser:
         return self._authors
 
     @authors.setter
-    def authors(self) -> None:
+    def authors(self, contributors: set | list | None = None) -> None:
         """
         Set authors from contributors.
+        :param contributors: Contributors
         :param self:
         """
-        self._authors = ', '.join(self.contributors)
+        if contributors is None:
+            contributors = self.contributors
+        self._authors = ', '.join(contributors)
 
     # - version: This is a shorter, "quick reference" version of your project,
     #   which usually omits smaller point-level details. For example, if your project's full version is '1.3.4',

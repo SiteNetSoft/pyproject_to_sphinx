@@ -109,10 +109,22 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.copyright = "Copyright (C) 2023 Mock"
         self.assertEqual(self.parser.copyright, "Copyright (C) 2023 Mock")
 
-    #def test_authors(self):
-    #    # Test getter and setter
-    #    self.parser.authors = "Author 1, Author 2"
-    #    self.assertEqual(self.parser.authors, "Author 1, Author 2")
+    def test_authors_list_setter(self):
+        # Test getter and setter
+        self.parser.authors = ["Author 1", "Author 2"]
+        self.assertEqual(self.parser.authors, "Author 1, Author 2")
+
+    @patch('subprocess.run')
+    def test_authors_None_setter(self, mock_run):
+        # Mock the subprocess.run to return a successful Git command
+        mock_run.return_value = MagicMock(returncode=0, stdout="Contributor 1\nContributor 2")
+
+        # Test getter and setter
+        self.parser.contributors = {"Contributor 1", "Contributor 2"}
+        # Test getter and setter
+        self.parser.authors = None
+        print(self.parser.authors)
+        # self.assertEqual(self.parser.authors, "Author 1, Author 2")
 
     def test_version(self):
         # Test getter and setter
