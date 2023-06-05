@@ -45,6 +45,7 @@ class PyProjectParser:
         self._pyproject_path = pyproject_path
         self._docs_path = docs_path
         self._license_path = license_path
+        self.authors = None
 
     @property
     def repo_path(self) -> Path:
@@ -286,7 +287,15 @@ class PyProjectParser:
         """
         if contributors is None:
             contributors = self.contributors
-        self._authors = ', '.join(contributors)
+
+        authors = None
+        if isinstance(contributors, set) or isinstance(contributors, list):
+            authors = ', '.join(contributors)
+
+        if authors is None:
+            authors = ""
+
+        self._authors = authors
 
     # - version: This is a shorter, "quick reference" version of your project,
     #   which usually omits smaller point-level details. For example, if your project's full version is '1.3.4',

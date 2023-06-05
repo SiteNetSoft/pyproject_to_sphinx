@@ -59,8 +59,7 @@ class TestPyProjectParser(unittest.TestCase):
 
         # Test getter and setter
         self.parser.docs_path = Path("mock_path")
-        #print(self.parser.docs_path)
-        #self.assertEqual(self.parser.docs_path, Path("mock_path"))
+        self.assertEqual(self.parser.docs_path, Path("mock_path"))
 
     @patch('pyproject_to_sphinx.pyproject_parser.toml.load')
     def test_metadata(self, mock_load):
@@ -120,11 +119,16 @@ class TestPyProjectParser(unittest.TestCase):
         mock_run.return_value = MagicMock(returncode=0, stdout="Contributor 1\nContributor 2")
 
         # Test getter and setter
-        self.parser.contributors = {"Contributor 1", "Contributor 2"}
-        # Test getter and setter
+        self.parser.contributors = ["Contributor 1", "Contributor 2"]
+        # Retest authors setter so that it uses the contributors property
         self.parser.authors = None
-        print(self.parser.authors)
-        # self.assertEqual(self.parser.authors, "Author 1, Author 2")
+
+        self.assertEqual(self.parser.authors, "Contributor 1, Contributor 2")
+
+    @patch('subprocess.run')
+    def test_authors_subprocess_failure(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1)  # Simulate a subprocess failure
+        self.assertEqual(self.parser.authors, "")
 
     def test_version(self):
         # Test getter and setter
