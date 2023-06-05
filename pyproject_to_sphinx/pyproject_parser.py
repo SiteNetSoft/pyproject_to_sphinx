@@ -171,7 +171,7 @@ class PyProjectParser:
         self._metadata = data["tool"]["poetry"]
 
     @property
-    def contributors(self) -> set:
+    def contributors(self) -> list:
         """
         Get contributors from git log.
         :param self:
@@ -180,7 +180,7 @@ class PyProjectParser:
         return self._contributors
 
     @contributors.setter
-    def contributors(self, contributors: set | None = None) -> None:
+    def contributors(self, contributors: list | None = None) -> None:
         """
         Set contributors from git log.
         :param self:
@@ -189,7 +189,7 @@ class PyProjectParser:
         if contributors is None or len(contributors) == 0:
             git_command = ['git', 'log', '--pretty=format:%an', f'-- {self.docs_path}']
             result = subprocess.run(git_command, capture_output=True, text=True)
-            contributors = set(result.stdout.splitlines())
+            contributors = list(result.stdout.splitlines())
 
         self._contributors = contributors
 

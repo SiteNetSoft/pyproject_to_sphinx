@@ -103,6 +103,42 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.license_file_copyright = None
         self.assertEqual(self.parser.license_file_copyright, "Copyright 2023 SiteNetSoft")
 
+    def test_license_BoostSoftwareLicense1_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BoostSoftwareLicense1.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "")
+
+    def test_license_BSD2ClauseSimplifiedLicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BSD2ClauseSimplifiedLicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
+
+    def test_license_BSD3ClauseClearLicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BSD3ClauseClearLicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
+
+    def test_license_BSD3ClauseNeworRevisedLicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BSD3ClauseNeworRevisedLicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
+
+    def test_license_BSD4ClauseOriginalorOldLicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BSD4ClauseOriginalorOldLicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
+
+    def test_license_BSDZeroClauseLicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/BSDZeroClauseLicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
+
     def test_license_MIT_file_copyright(self):
         # Test getter and setter
         self.parser.license_file_path = Path("./tests/fixtures/MIT/LICENSE").resolve()
