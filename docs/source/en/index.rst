@@ -64,6 +64,14 @@ Or via poetry:
 
         export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
+.. tip::
+
+    If you are having issues (`ModuleNotFoundError: No module named 'toml'`) with the installation you can try to force reinstall the toml package:
+
+    ``pip install --upgrade --force-reinstall toml``
+
+    If it still does not work make sure you are using the right version of python (``python --version``) it should be 3.10 or higher.
+
 Nothing to complicated.
 
 Usage

@@ -25,6 +25,14 @@ C'est pourquoi ce projet très simple existe. Il analyse votre fichier `pyprojec
 
     Notre 127.0.0.1 est au Québec, Canada, c'est pour cette raison que nous devons fournir notre documentation en français.
 
+.. tip::
+
+    Si vous rencontrez des problèmes (`ModuleNotFoundError: No module named 'toml'`) avec l'installation, vous pouvez essayer de réinstaller le package toml de force :
+
+    ``pip install --upgrade --force-reinstall toml``
+
+    Si cela ne fonctionne toujours pas, assurez-vous que vous utilisez la bonne version de python (``python --version``). Elle doit être 3.10 ou supérieure.
+
 Version vs. Versioning
 ----------------------
 
