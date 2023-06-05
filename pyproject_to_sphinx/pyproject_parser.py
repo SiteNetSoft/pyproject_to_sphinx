@@ -238,7 +238,7 @@ class PyProjectParser:
         if license_path is not None:
             with open(license_path) as f:
                 for line in f:
-                    if "Copyright" in line:
+                    if line.lstrip().startswith("Copyright"):
                         project_copyright = line.strip()
                         break
 
@@ -286,6 +286,7 @@ class PyProjectParser:
         :param self:
         """
         if contributors is None:
+            self.contributors = None
             contributors = self.contributors
 
         authors = None

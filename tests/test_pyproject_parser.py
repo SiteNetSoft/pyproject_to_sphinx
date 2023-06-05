@@ -97,7 +97,13 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.license_file_path = Path("mock_path")
         self.assertEqual(self.parser.license_file_path, Path("mock_path"))
 
-    def test_license_file_copyright(self):
+    def test_license_ApacheLicense2_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/ApacheLicense2.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright 2023 SiteNetSoft")
+
+    def test_license_MIT_file_copyright(self):
         # Test getter and setter
         self.parser.license_file_path = Path("./tests/fixtures/MIT/LICENSE").resolve()
         self.parser.license_file_copyright = None
