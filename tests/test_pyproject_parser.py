@@ -139,11 +139,58 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.license_file_copyright = None
         self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023, SiteNetSoft")
 
+    def test_license_CreativeCommonsAttribution4_0International_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/CreativeCommonsAttribution4.0International/LICENSE")\
+            .resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright,
+                         "Creative Commons Attribution 4.0 International Public License")
+
+    def test_license_FallBackToTxt_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/FallBackToTxt/LICENSE") \
+            .resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023 SiteNetSoft (txt)")
+
+    def test_license_GNUAfferoGeneralPublicLicensev3_0_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/GNUAfferoGeneralPublicLicensev3.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (C) 2023 SiteNetSoft")
+
+    def test_license_GNUGeneralPublicLicensev3_0_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/GNUGeneralPublicLicensev3.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Copyright (C) 2023  SiteNetSoft")
+
+    def test_license_GNULesserGeneralPublicLicensev3_0_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/GNULesserGeneralPublicLicensev3.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright,
+                         "Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>")
+
     def test_license_MIT_file_copyright(self):
         # Test getter and setter
         self.parser.license_file_path = Path("./tests/fixtures/MIT/LICENSE").resolve()
         self.parser.license_file_copyright = None
         self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023 SiteNetSoft (not txt)")
+
+    def test_license_MozillaPublicLicense2_0_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/MozillaPublicLicense2.0/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright, "Mozilla Public License Version 2.0")
+
+    def test_license_TheUnlicense_file_copyright(self):
+        # Test getter and setter
+        self.parser.license_file_path = Path("./tests/fixtures/TheUnlicense/LICENSE").resolve()
+        self.parser.license_file_copyright = None
+        self.assertEqual(self.parser.license_file_copyright,
+                         "This is free and unencumbered software released into the public domain.")
 
     def test_copyright(self):
         # Test getter and setter

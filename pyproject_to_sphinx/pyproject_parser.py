@@ -236,11 +236,25 @@ class PyProjectParser:
         license_path = self.license_file_path
         project_copyright = None
         if license_path is not None:
+            project_copyright = None
+            fallback_copyright = None
             with open(license_path) as f:
                 for line in f:
                     if line.lstrip().startswith("Copyright"):
+                        if "Free Software Foundation" not in line:
+                            project_copyright = line.strip()
+                            break
+                        elif fallback_copyright is None:
+                            fallback_copyright = line.strip()
+                    elif line.lstrip().startswith("Mozilla Public License"):
                         project_copyright = line.strip()
-                        break
+                    elif line.lstrip().startswith("This is free and unencumbered software"):
+                        project_copyright = line.strip()
+                    elif line.lstrip().startswith("Creative Commons Attribution"):
+                        project_copyright = line.strip()
+
+            if project_copyright is None and fallback_copyright is not None:
+                project_copyright = fallback_copyright
 
         if project_copyright is None:
             project_copyright = ""
