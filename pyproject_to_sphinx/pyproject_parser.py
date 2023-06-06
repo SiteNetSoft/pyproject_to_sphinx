@@ -33,11 +33,11 @@ class PyProjectParser:
         self._project_data = None
         self._docs_path = None
         self._metadata = None
-        self._contributors = None
+        self._doc_contributors = None
         self._license_file_path = None
         self._license_file_copyright = None
         self._copyright = None
-        self._authors = None
+        self._doc_authors = None
         self._version = None
         self._release = None
 
@@ -45,7 +45,7 @@ class PyProjectParser:
         self._pyproject_path = pyproject_path
         self._docs_path = docs_path
         self._license_path = license_path
-        self.authors = None
+        self.doc_authors = None
 
     @property
     def repo_path(self) -> Path:
@@ -171,27 +171,27 @@ class PyProjectParser:
         self._metadata = data["tool"]["poetry"]
 
     @property
-    def contributors(self) -> list:
+    def doc_contributors(self) -> list:
         """
-        Get contributors from git log.
+        Get doc contributors from git log.
         :param self:
         :return:
         """
-        return self._contributors
+        return self._doc_contributors
 
-    @contributors.setter
-    def contributors(self, contributors: list | None = None) -> None:
+    @doc_contributors.setter
+    def doc_contributors(self, doc_contributors: list | None = None) -> None:
         """
-        Set contributors from git log.
+        Set doc contributors from git log.
         :param self:
-        :param contributors: Contributors (by default it gets it from the git log)
+        :param doc_contributors: Doc contributors (by default it gets it from the git log)
         """
-        if contributors is None or len(contributors) == 0:
+        if doc_contributors is None or len(doc_contributors) == 0:
             git_command = ['git', 'log', '--pretty=format:%an', f'-- {self.docs_path}']
             result = subprocess.run(git_command, capture_output=True, text=True)
-            contributors = list(result.stdout.splitlines())
+            doc_contributors = list(result.stdout.splitlines())
 
-        self._contributors = contributors
+        self._doc_contributors = doc_contributors
 
     @property
     def license_file_path(self) -> Path | None:
@@ -284,33 +284,33 @@ class PyProjectParser:
         self._copyright = project_copyright
 
     @property
-    def authors(self) -> str:
+    def doc_authors(self) -> str:
         """
-        Get author from contributors in a String if it is multiple authors then it adds comma between the names.
+        Get doc author from doc contributors in a String if it is multiple authors then it adds comma between the names.
         :param self:
         :return:
         """
-        return self._authors
+        return self._doc_authors
 
-    @authors.setter
-    def authors(self, contributors: set | list | None = None) -> None:
+    @doc_authors.setter
+    def doc_authors(self, doc_contributors: set | list | None = None) -> None:
         """
-        Set authors from contributors.
-        :param contributors: Contributors
+        Set doc authors from doc contributors.
+        :param doc_contributors: Doc contributors
         :param self:
         """
-        if contributors is None:
-            self.contributors = None
-            contributors = self.contributors
+        if doc_contributors is None:
+            self.doc_contributors = None
+            doc_contributors = self.doc_contributors
 
         authors = None
-        if isinstance(contributors, set) or isinstance(contributors, list):
-            authors = ', '.join(contributors)
+        if isinstance(doc_contributors, set) or isinstance(doc_contributors, list):
+            authors = ', '.join(doc_contributors)
 
         if authors is None:
             authors = ""
 
-        self._authors = authors
+        self._doc_authors = authors
 
     # - version: This is a shorter, "quick reference" version of your project,
     #   which usually omits smaller point-level details. For example, if your project's full version is '1.3.4',

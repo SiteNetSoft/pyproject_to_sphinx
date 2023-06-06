@@ -223,8 +223,8 @@ class TestPyProjectParser(unittest.TestCase):
 
     def test_authors_list_setter(self):
         # Test getter and setter
-        self.parser.authors = ["Author 1", "Author 2"]
-        self.assertEqual(self.parser.authors, "Author 1, Author 2")
+        self.parser.doc_authors = ["Author 1", "Author 2"]
+        self.assertEqual(self.parser.doc_authors, "Author 1, Author 2")
 
     @patch('subprocess.run')
     def test_authors_None_setter(self, mock_run):
@@ -232,16 +232,16 @@ class TestPyProjectParser(unittest.TestCase):
         mock_run.return_value = MagicMock(returncode=0, stdout="Contributor 1\nContributor 2")
 
         # Test getter and setter
-        self.parser.contributors = ["Contributor 1", "Contributor 2"]
+        self.parser.doc_contributors = ["Contributor 1", "Contributor 2"]
         # Retest authors setter so that it uses the contributors property
-        self.parser.authors = None
+        self.parser.doc_authors = None
 
-        self.assertEqual(self.parser.authors, "Contributor 1, Contributor 2")
+        self.assertEqual(self.parser.doc_authors, "Contributor 1, Contributor 2")
 
     @patch('subprocess.run')
     def test_authors_subprocess_failure(self, mock_run):
         mock_run.return_value = MagicMock(returncode=1)  # Simulate a subprocess failure
-        self.assertEqual(self.parser.authors, "")
+        self.assertEqual(self.parser.doc_authors, "")
 
     def test_version(self):
         # Test getter and setter
