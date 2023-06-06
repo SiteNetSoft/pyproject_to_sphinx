@@ -211,10 +211,10 @@ class PyProjectParser:
         """
         if license_path is None:
             license_path = Path(f'{self.repo_path}/LICENSE').resolve()
-            if not license_path.exists():
-                license_path = Path(f'{self.repo_path}/LICENSE.txt').resolve()
-                if not license_path.exists():
-                    license_path = None
+        if license_path is None or not license_path.exists():
+            license_path = Path(f'{self.repo_path}/LICENSE.txt').resolve()
+        if license_path is None or not license_path.exists():
+            license_path = None
 
         self._license_file_path = license_path
 

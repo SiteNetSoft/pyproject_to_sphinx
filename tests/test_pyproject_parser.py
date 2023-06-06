@@ -97,6 +97,30 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.license_file_path = Path("mock_path")
         self.assertEqual(self.parser.license_file_path, Path("mock_path"))
 
+    @patch('pyproject_to_sphinx.pyproject_parser.Path.resolve')
+    @patch('pyproject_to_sphinx.pyproject_parser.Path.exists')
+    def test_license_txt_file_path(self, mock_exists, mock_resolve):
+        # First call to exists will return False, second call will return True
+        mock_exists.side_effect = [False, True]
+        # Mock the resolve method
+        mock_resolve.return_value = Path('mock_txt_path')
+
+        # Test setter
+        self.parser.license_file_path = None
+        self.assertEqual(self.parser.license_file_path, Path("mock_txt_path"))
+
+    @patch('pyproject_to_sphinx.pyproject_parser.Path.resolve')
+    @patch('pyproject_to_sphinx.pyproject_parser.Path.exists')
+    def test_no_license_file_path(self, mock_exists, mock_resolve):
+        # Both calls to exists will return False
+        mock_exists.return_value = False
+        # Mock resolve to return None
+        mock_resolve.return_value = None
+
+        # Test setter
+        self.parser.license_file_path = None
+        self.assertIsNone(self.parser.license_file_path)
+
     def test_license_ApacheLicense2_file_copyright(self):
         # Test getter and setter
         self.parser.license_file_path = Path("./tests/fixtures/ApacheLicense2.0/LICENSE").resolve()
@@ -149,8 +173,8 @@ class TestPyProjectParser(unittest.TestCase):
 
     def test_license_FallBackToTxt_file_copyright(self):
         # Test getter and setter
-        self.parser.license_file_path = Path("./tests/fixtures/FallBackToTxt/LICENSE") \
-            .resolve()
+        self.parser.repo_path = Path("./tests/fixtures/FallBackToTxt/").resolve()
+        self.parser.license_file_path = None
         self.parser.license_file_copyright = None
         self.assertEqual(self.parser.license_file_copyright, "Copyright (c) 2023 SiteNetSoft (txt)")
 
