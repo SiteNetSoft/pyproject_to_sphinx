@@ -33,7 +33,7 @@ class PyProjectParser:
         self._project_data = None
         self._docs_path = None
         self._metadata = None
-        self._doc_contributors = None
+        self._contributors = None
         self._license_file_path = None
         self._license_file_copyright = None
         self._copyright = None
@@ -171,27 +171,27 @@ class PyProjectParser:
         self._metadata = data["tool"]["poetry"]
 
     @property
-    def doc_contributors(self) -> list:
+    def contributors(self) -> str:
         """
-        Get doc contributors from git log.
+        Get contributors from git log.
         :param self:
         :return:
         """
-        return self._doc_contributors
+        return self._contributors
 
-    @doc_contributors.setter
-    def doc_contributors(self, doc_contributors: list | None = None) -> None:
+    @contributors.setter
+    def contributors(self, contributors: set | list | None = None) -> None:
         """
-        Set doc contributors from git log.
+        Set contributors from git log.
         :param self:
-        :param doc_contributors: Doc contributors (by default it gets it from the git log)
+        :param contributors: Contributors (by default it gets it from the git log)
         """
-        if doc_contributors is None or len(doc_contributors) == 0:
-            git_command = ['git', 'log', '--pretty=format:%an', f'-- {self.docs_path}']
+        if contributors is None or len(contributors) == 0:
+            git_command = ['git', 'log', '--pretty=format:%an']
             result = subprocess.run(git_command, capture_output=True, text=True)
-            doc_contributors = list(result.stdout.splitlines())
+            contributors = list(dict.fromkeys(result.stdout.splitlines()))
 
-        self._doc_contributors = doc_contributors
+        self._contributors = ", ".join(contributors)
 
     @property
     def license_file_path(self) -> Path | None:
@@ -293,24 +293,18 @@ class PyProjectParser:
         return self._doc_authors
 
     @doc_authors.setter
-    def doc_authors(self, doc_contributors: set | list | None = None) -> None:
+    def doc_authors(self, doc_authors: set | list | None = None) -> None:
         """
         Set doc authors from doc contributors.
-        :param doc_contributors: Doc contributors
+        :param doc_authors: Doc contributors
         :param self:
         """
-        if doc_contributors is None:
-            self.doc_contributors = None
-            doc_contributors = self.doc_contributors
+        if doc_authors is None:
+            git_command = ['git', 'log', '--pretty=format:%an', f'-- {self.docs_path}']
+            result = subprocess.run(git_command, capture_output=True, text=True)
+            doc_authors = list(dict.fromkeys(result.stdout.splitlines()))
 
-        authors = None
-        if isinstance(doc_contributors, set) or isinstance(doc_contributors, list):
-            authors = ', '.join(doc_contributors)
-
-        if authors is None:
-            authors = ""
-
-        self._doc_authors = authors
+        self._doc_authors = ', '.join(doc_authors)
 
     # - version: This is a shorter, "quick reference" version of your project,
     #   which usually omits smaller point-level details. For example, if your project's full version is '1.3.4',

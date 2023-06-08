@@ -83,7 +83,7 @@ class TestPyProjectParser(unittest.TestCase):
 
         # Test getter and setter
         self.parser.contributors = {"Contributor 1", "Contributor 2"}
-        self.assertEqual(self.parser.contributors, {"Contributor 1", "Contributor 2"})
+        self.assertEqual(self.parser.contributors, "Contributor 1, Contributor 2")
 
     @patch('pyproject_to_sphinx.pyproject_parser.Path.resolve')
     @patch('pyproject_to_sphinx.pyproject_parser.Path.exists')
