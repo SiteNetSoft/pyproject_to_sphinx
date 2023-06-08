@@ -1,0 +1,12 @@
+name: Lint and Unit Tests for Python
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - develop
+
+jobs:
+  tests-python:
+    uses: SiteNetSoft/GitHub-Actions/.github/workflows/tests-python.yml@develop
