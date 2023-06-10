@@ -61,7 +61,7 @@ class TestPyProjectParser(unittest.TestCase):
         self.parser.docs_path = Path("mock_path")
         self.assertEqual(self.parser.docs_path, Path("mock_path"))
 
-    @patch('pyproject_to_sphinx.pyproject_parser.toml.load')
+    @patch('pyproject_to_sphinx.pyproject_parser.tomllib.load')
     def test_metadata(self, mock_load):
         mock_metadata = {
             "tool": {
@@ -82,7 +82,7 @@ class TestPyProjectParser(unittest.TestCase):
         mock_run.return_value = MagicMock(returncode=0, stdout="Contributor 1\nContributor 2")
 
         # Test getter and setter
-        self.parser.contributors = {"Contributor 1", "Contributor 2"}
+        self.parser.contributors = ["Contributor 1", "Contributor 2"]
         self.assertEqual(self.parser.contributors, "Contributor 1, Contributor 2")
 
     @patch('pyproject_to_sphinx.pyproject_parser.Path.resolve')

@@ -7,7 +7,7 @@ Released under MIT License
 PyProjectParser class.
 """
 
-import toml
+import tomllib
 import subprocess
 from pathlib import Path
 
@@ -123,7 +123,8 @@ class PyProjectParser:
         """
         if project_data is None:
             try:
-                project_data = toml.load(self.pyproject_path)
+                with open(self.pyproject_path, 'rb') as file:
+                    project_data = tomllib.load(file)
             except Exception as e:
                 raise Exception(f"Error reading pyproject.toml file: {str(e)}")
 

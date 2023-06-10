@@ -28,7 +28,6 @@ classifiers=[
     'Operating System :: Microsoft :: Windows',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Topic :: Software Development :: Build Tools',
     'Topic :: Utilities',
@@ -36,8 +35,7 @@ classifiers=[
 packages = [{include='pyproject_to_sphinx', from='.'}]
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
-toml = "^0.10.2"
+python = "^3.11.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
@@ -46,7 +44,7 @@ pre-commit = "^3.0.4"
 
 [tool.black]
 line-length = 88
-target-version = ['py310']
+target-version = ['py311']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -126,7 +124,7 @@ line-length = 88
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-target-version = "py10"
+target-version = "py11"
 
 [tool.ruff.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
